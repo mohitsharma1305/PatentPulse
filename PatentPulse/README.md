@@ -34,6 +34,7 @@ The demo binds to **127.0.0.1**, stores its H2 database/files in `demo-data`, an
 - Exact-file comparison returning MATCH or MISMATCH.
 - Admin assignment of two distinct reviewers; final per-version decisions.
 - Two approvals → Internally Reviewed. Any rejection → Needs Revision.
+- Last-200-event audit view, restricted to administrators.
 - Role and account administration for researcher and reviewer access.
 - Responsive navy/teal JSP interface, search and status filters.
 - CSRF tokens, role filters, per-record access checks, prepared statements, escaped HTML, session rotation, upload limits, private storage, and transaction rollback.

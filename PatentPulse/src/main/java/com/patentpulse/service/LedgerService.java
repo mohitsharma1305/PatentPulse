@@ -362,4 +362,11 @@ public class LedgerService {
         });
   }
 
+  public List<Map<String, Object>> audit(User u) throws Exception {
+    Problem.require(u.isAdmin(), 403, "Admin access required.");
+    return db.query(
+        "SELECT a.*,u.name AS actor_name FROM audit_logs a LEFT JOIN users u ON u.id=a.actor_id"
+            + " ORDER BY a.id DESC LIMIT 200");
+  }
+
 }

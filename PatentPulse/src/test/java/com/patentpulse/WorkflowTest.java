@@ -256,6 +256,7 @@ class WorkflowTest {
     assertTrue(researcher.get("/app/document?id=" + next).body().contains("NEEDS REVISION"));
     assertEquals(200, admin.get("/app/admin/users").statusCode());
     assertEquals(200, admin.get("/app/admin/queue").statusCode());
+    assertTrue(admin.get("/app/admin/audit").body().contains("INTEGRITY_MISMATCH"));
     assertEquals(409, researcher.post("/app/draft", fields).statusCode());
     location(
         admin.post(

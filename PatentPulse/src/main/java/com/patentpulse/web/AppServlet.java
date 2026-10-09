@@ -77,6 +77,10 @@ public class AppServlet extends HttpServlet {
           r.setAttribute("users", ledger().users(u));
           view(r, s, "users");
           break;
+        case "/admin/audit":
+          r.setAttribute("events", ledger().audit(u));
+          view(r, s, "audit");
+          break;
         default:
           throw new Problem(404, "Page not found.");
       }

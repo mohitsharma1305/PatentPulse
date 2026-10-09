@@ -48,6 +48,7 @@ public class AppServlet extends HttpServlet {
           view(r, s, "editor");
           break;
         case "/document":
+        case "/receipt":
           var v = ledger().version(u, id(r, "id"));
           r.setAttribute("doc", v);
           r.setAttribute("history", ledger().history(u, v));
@@ -66,7 +67,7 @@ public class AppServlet extends HttpServlet {
                 "canVote",
                 !assignments.isEmpty() && !ReviewPolicy.terminal(v.get("status").toString()));
           }
-          view(r, s, "document");
+          view(r, s, path.equals("/receipt") ? "receipt" : "document");
           break;
         case "/review":
         case "/admin/queue":

@@ -35,11 +35,12 @@ The demo binds to **127.0.0.1**, stores its H2 database/files in `demo-data`, an
 - Admin assignment of two distinct reviewers; final per-version decisions.
 - Two approvals → Internally Reviewed. Any rejection → Needs Revision.
 - Last-200-event audit view, restricted to administrators.
+- Printable submission receipts (browser Print / Save PDF).
 - Role and account administration for researcher and reviewer access.
 - Responsive navy/teal JSP interface, search and status filters.
 - CSRF tokens, role filters, per-record access checks, prepared statements, escaped HTML, session rotation, upload limits, private storage, and transaction rollback.
 
-**Integrity and legal scope:** this is an internal document-integrity and research-history tool. A hash does not prove authorship or inventorship; a private upload does not automatically establish legally recognized prior art. Server timestamps are not independent trusted timestamps. Internal reviews do not certify patentability. Database/server administrators remain trusted. No blockchain, patent search, plagiarism detector, email service, or public disclosure is implied.
+**Integrity and legal scope:** this is an internal document-integrity and research-history tool. A hash does not prove authorship or inventorship; a private upload does not automatically establish legally recognized prior art. Server timestamps are not independent trusted timestamps. Internal reviews do not certify patentability. Receipts are not digitally signed. Database/server administrators remain trusted. No blockchain, patent search, plagiarism detector, email service, or public disclosure is implied.
 
 ## MySQL + external Tomcat installation
 

@@ -172,6 +172,7 @@ class WorkflowTest {
                     "Original research content.")));
     var document = researcher.get("/app/document?id=" + version);
     assertEquals(200, document.statusCode(), document.body());
+    assertEquals(200, researcher.get("/app/receipt?id=" + version).statusCode());
     assertTrue(document.body().contains("&lt;script&gt;"));
     assertFalse(document.body().contains("<script>alert(1)</script>"));
     assertEquals(404, reviewer1.get("/app/document?id=" + version).statusCode());

@@ -24,7 +24,7 @@ public class AuthServlet extends HttpServlet {
     try {
       if (r.getServletPath().equals("/logout")) {
         r.getSession().invalidate();
-        s.sendRedirect(r.getContextPath() + "/login");
+        s.sendRedirect(r.getContextPath() + "/login?loggedOut=1");
         return;
       }
       AuthService auth = (AuthService) getServletContext().getAttribute("auth");

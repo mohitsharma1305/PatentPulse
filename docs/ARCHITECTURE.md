@@ -28,6 +28,12 @@ flowchart TD
 - `AppContext`: initializes the HikariCP pool and services; closes the pool at shutdown.
 - JSP files live beneath `WEB-INF` and cannot be requested directly.
 
+## Login and logout lifecycle
+
+Login and registration are submitted by POST forms with a CSRF token. The authentication service normalizes email addresses and verifies password hashes with BCrypt; after a successful login, the servlet rotates the session ID, issues a fresh CSRF token, clears failed-login cooldown state and redirects to the dashboard. Failed login attempts receive a generic message so the response does not disclose whether an email address is registered.
+
+Logout is also POST-only and protected by the same CSRF check. It invalidates the authenticated session before redirecting to the login page, which displays a signed-out confirmation. A GET request to `/logout` is rejected, so following a link cannot accidentally end a user's session.
+
 ## Database relationships
 
 ```mermaid

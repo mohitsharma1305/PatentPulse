@@ -38,4 +38,18 @@ class HashingTest {
         };
     assertEquals(hash("abc"), Hashing.sha256(slow));
   }
+
+  @Test
+  void streamReadBoundariesAcrossBufferDoNotChangeDigest() throws Exception {
+    String value = "a".repeat(20_000);
+    byte[] bytes = value.getBytes(StandardCharsets.UTF_8);
+    InputStream chunked =
+        new ByteArrayInputStream(bytes) {
+          public synchronized int read(byte[] b, int off, int len) {
+            return super.read(b, off, Math.min(1024, len));
+          }
+        };
+
+    assertEquals(hash(value), Hashing.sha256(chunked));
+  }
 }

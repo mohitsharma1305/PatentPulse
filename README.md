@@ -968,7 +968,7 @@ Use the shared integration report for recorded automated results. Member-specifi
 | SRS | [Requirements](https://drive.google.com/file/d/12Y_sHfc7zVybGAvwn7ySOf90QEhWdJwl/view?usp=sharing) | Prepared |
 | Presentation | [13-slide PPT](reports/PatentPulse_Presentation.pptx) | Prepared |
 | Module guides | [All five members](docs/modules/README.md) | Prepared |
-| Weekly report | [Weeks 1–12](reports/Weekly_Report_Weeks_1_to_12.md)
+| Weekly report | [Weeks 1–12]([(https://drive.google.com/file/d/1qH0LV0P5n1XUYl7Ad2BPkcK9Jf4CR65F/view?usp=sharing)]) Prepared
 | Demo video | [Recording script](docs/DEMO_VIDEO_SCRIPT.md) | Recording pending |
 
 The linked documents and screenshots use the existing PatentPulse repository layout. Save this file as README.md at the repository root.

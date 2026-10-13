@@ -976,7 +976,7 @@ Use the shared integration report for recorded automated results. Member-specifi
 | Deliverable | Resource | Status |
 |---|---|---|
 | Project report | [Word document](https://docs.google.com/document/d/1VGnz2tlHKocOxwPtAJICDm8wZwZ3FXKU/edit?usp=sharing&ouid=116020988422796059772&rtpof=true&sd=true) | Prepared; team details to complete |
-| Research paper | [Paper draft]([https://drive.google.com/file/d/1-I-SIa14MsZsjQuyYNhEftY0Hepep2zP/view?usp=sharing]) | Unpublished design and implementation draft |
+| Research paper | [Paper draft](https://drive.google.com/file/d/1-I-SIa14MsZsjQuyYNhEftY0Hepep2zP/view?usp=sharing) | Unpublished design and implementation draft |
 | SRS | [Requirements](https://drive.google.com/file/d/12Y_sHfc7zVybGAvwn7ySOf90QEhWdJwl/view?usp=sharing) | Prepared |
 | Presentation | [13-slide PPT](reports/PatentPulse_Presentation.pptx) | Prepared |
 | Weekly report | [Weeks 1–12](https://drive.google.com/file/d/1qH0LV0P5n1XUYl7Ad2BPkcK9Jf4CR65F/view?usp=sharing) | Prepared |

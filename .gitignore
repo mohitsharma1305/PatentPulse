@@ -1,0 +1,11 @@
+target/
+.env
+.env.*
+!.env.example
+*.log
+*.mv.db
+*.trace.db
+uploads/
+apache-maven-*/
+.idea/
+*.iml

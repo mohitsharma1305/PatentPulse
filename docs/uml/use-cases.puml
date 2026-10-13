@@ -1,0 +1,33 @@
+@startuml
+left to right direction
+actor Visitor
+actor "Authenticated user" as User
+actor "Assigned reviewer" as Reviewer
+actor Administrator as Admin
+Reviewer --|> User
+Admin --|> User
+rectangle PatentPulse {
+ usecase "Register or log in" as Login
+ usecase "Manage own drafts" as Draft
+ usecase "Submit a version" as Submit
+ usecase "View authorised version" as View
+ usecase "Compare candidate file" as Verify
+ usecase "Download authorised file" as Download
+ usecase "View receipt" as Receipt
+ usecase "Submit review decision" as Vote
+ usecase "Assign reviewers" as Assign
+ usecase "Manage non-admin accounts" as Accounts
+ usecase "View audit events" as Audit
+}
+Visitor --> Login
+User --> Draft
+User --> Submit
+User --> View
+User --> Verify
+User --> Download
+User --> Receipt
+Reviewer --> Vote
+Admin --> Assign
+Admin --> Accounts
+Admin --> Audit
+@enduml

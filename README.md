@@ -37,7 +37,7 @@ The week headings below organise the project into the same ten sections as the s
 | Programme | B.Tech Artificial Intelligence & Data Science, Semester V |
 | Institution | Arya College of Engineering & IT, Jaipur |
 | Academic session | 2026–27 |
-| Project guide | Er. Ram Babu Buri |
+| Project guide | Er. Ram Babu Buri Sir |
 | Team leader | Mohit Sharma |
 
 ### Team members

@@ -10,7 +10,7 @@
 
 [Repository](https://github.com/mohitsharma1305/PatentPulse) · [Quick start](#quick-start) · [Team](#team-members) · [UML](#week-5-uml-and-system-design) · [Deliverables](#week-12-report-presentation-and-final-demonstration)
 
-> **Documentation baseline:** This README describes the supplied complete project archive. As inspected on 13 October 2026, `main` contains a partial source upload and is missing `pom.xml`, launch scripts and other application files. The full workflow below describes the supplied archive; this documentation update alone does not make the repository runnable. Week headings organise the agreed 12-week project phases; they are not a claim that work occurred on particular historical dates.
+> **Integration baseline:** Missing application files have been restored from the supplied complete project archive while retaining the existing team Java files and administrator page. Week headings organise the agreed 12-week phases; they are not a claim that work occurred on particular historical dates. See [integration validation](docs/INTEGRATION-VALIDATION.md) for checks and remaining deployment work.
 
 > **Deployment:** A local demo is available in the supplied source. No public deployment URL has been confirmed.
 
@@ -736,7 +736,7 @@ git clone https://github.com/mohitsharma1305/PatentPulse.git
 cd PatentPulse
 ```
 
-The source files, `pom.xml` and launch scripts must be present. If the team has not yet committed them, add the reviewed source before running these commands.
+Run the following commands from the repository root containing `pom.xml`.
 
 Prerequisites: JDK 17, Maven and the supplied project source. Run commands from the directory containing `pom.xml`.
 

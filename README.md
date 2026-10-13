@@ -331,7 +331,6 @@ flowchart TD
 The local demo substitutes embedded Tomcat and H2. Public TLS termination and backup infrastructure are deployment responsibilities and are not supplied as application services.
 
 
-Formal use-case source: [PlantUML](docs/uml/use-cases.puml). Full design guide: [UML README](docs/uml/README.md).
 
 ### Authentication Sequence: Login & Session Lifecycle
 

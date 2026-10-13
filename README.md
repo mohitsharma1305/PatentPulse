@@ -8,7 +8,7 @@
 
 **Keep research drafts, submitted versions, review decisions and file fingerprints together.**
 
-[Repository](https://github.com/mohitsharma1305/PatentPulse) · [Quick start](#quick-start) · [Team](#team-members) · [UML](#week-5-uml-and-system-design) · [Deliverables](#week-12-report-presentation-and-final-demonstration)
+[Detailed weekly plan](docs/WEEKLY_REPORTS_WEEK_1_TO_12.md) · [Repository](https://github.com/mohitsharma1305/PatentPulse) · [Quick start](#quick-start) · [Team](#team-members) · [UML](#week-5-uml-and-system-design) · [Deliverables](#week-12-report-presentation-and-final-demonstration)
 
 > **Integration baseline:** Missing application files have been restored from the supplied complete project archive while retaining the existing team Java files and administrator page. Week headings organise the agreed 12-week phases; they are not a claim that work occurred on particular historical dates. See [integration validation](docs/INTEGRATION-VALIDATION.md) for checks and remaining deployment work.
 
@@ -666,7 +666,7 @@ Shared means several modules use sections of one file. It does not mean each mem
 
 ### Available test evidence
 
-The supplied archive's `docs/TEST-REPORT.md` records **11 passing tests** on **6 October 2026**. These are archived results, not a fresh run on the current GitHub branch.
+The integration baseline was checked on **13 October 2026** with **11 tests passing** using embedded Tomcat and H2. See [integration validation](docs/INTEGRATION-VALIDATION.md). Real MySQL and external Tomcat deployment checks remain to be confirmed.
 
 | Suite | Test methods | Scope |
 |---|---:|---|
@@ -818,6 +818,17 @@ Open a pull request into `main`. Commit the linked documentation separately if i
 - Receipts are unsigned application records; there is no independent timestamp service.
 - Upload checks do not include antivirus scanning.
 - Failed-login throttling is session-scoped.
-- Public hosting, a fresh final-branch test run and the demo video remain to be verified or completed.
+- Real MySQL deployment checks and the demo video remain to be verified or completed.
 
 Guide details, enrolment numbers and confirmed activity records should be completed before academic submission.
+
+## Initial setup to final handoff
+
+1. Read the abstract, team roles and SRS above.
+2. Follow the [12-week member-wise plan](docs/WEEKLY_REPORTS_WEEK_1_TO_12.md). It contains proposed activities and estimated hours, not historical attendance.
+3. Use [member handoff folders](team/) and existing module guides for exact file ownership.
+4. Run the local demo, then `mvn clean verify`.
+5. Follow the existing Windows setup guide in `docs/SETUP-WINDOWS.md` for the project environment.
+6. Confirm report details and record the demonstration video.
+
+The reference repository was used only as a documentation-format template. The existing reports, presentation and spreadsheets are included; marked drafts need team confirmation.

@@ -9,3 +9,10 @@ uploads/
 apache-maven-*/
 .idea/
 *.iml
+
+# Local demo data and generated distribution files
+demo-data/
+dist/
+.classpath
+.project
+.settings/

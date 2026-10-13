@@ -22,8 +22,6 @@
 >
 > Run `START-DEMO.bat` on Windows or `sh START-DEMO.sh` on Linux/macOS with JDK 17 and Maven installed.
 
-The week headings below organise the project into the same ten sections as the supplied README template. They describe the implementation and deliverables, not a dated attendance record. The separate academic reporting plan covers twelve weeks.
-
 ---
 
 ## Week 1: Project Administration & Abstract
@@ -50,7 +48,6 @@ The week headings below organise the project into the same ten sections as the s
 | **Nitesh** | Reviewer assignments, decisions and feedback | [Nitesh](docs/modules/README_Nitesh.md) | 24E1ARADM30P114 |
 | **Mann Jain** | Administration, audit logs and receipts | [Mann](docs/modules/README_Mann.md) | 24E1ARADM30P092 |
 
-Full names and enrolment numbers should be completed before submission.
 
 ### Abstract
 
@@ -74,7 +71,6 @@ PatentPulse supports traceability within a research team or institution. Its rec
 | Administrator | Assign reviewers, manage non-admin accounts and inspect audit events |
 | Owner, assigned reviewer or administrator | View an authorised version, download, compare a candidate file and view its receipt |
 
-The supplied implementation allows any authenticated role to use personal research routes. Those records remain owner-scoped.
 
 ### Main requirements
 
@@ -328,9 +324,6 @@ flowchart TD
   S --> F[Private upload directory]
 ```
 
-The local demo substitutes embedded Tomcat and H2. Public TLS termination and backup infrastructure are deployment responsibilities and are not supplied as application services.
-
-
 
 ### Authentication Sequence: Login & Session Lifecycle
 
@@ -385,8 +378,6 @@ flowchart TD
 | `review_assignments` | Reviewer allocation | Connects a reviewer to a version |
 | `review_votes` | Decision and feedback | At most one vote per assignment |
 | `audit_logs` | Application event records | May reference an actor and a target |
-
-The files stay in private filesystem storage. There is no separate receipts table. Draft means a research item without a submitted version.
 
 ### Entity relationship diagram
 
@@ -522,15 +513,26 @@ Saving metadata creates a draft. Submission writes the file and inserts a metada
 
 #### Files and responsibility
 
-| Project path | Responsibility |
-|---|---|
-| `src/main/java/com/patentpulse/service/UploadStore.java` | File validation, safe storage and cleanup. Shared with Jay for hashing. |
-| `src/main/webapp/WEB-INF/views/editor.jsp` | Draft, upload and submission form. |
-| `src/main/webapp/WEB-INF/views/dashboard.jsp` | Own research listing, search and status filtering. |
-| `src/main/webapp/WEB-INF/views/document.jsp` | Research details and version-history section. Shared with Jay and Nitesh. |
-| `src/main/java/com/patentpulse/service/LedgerService.java` | mine, draft, saveDraft, submit, validate and history. Shared with all five. |
-| `src/main/java/com/patentpulse/web/AppServlet.java` | Dashboard, editor, draft and submission routes. Shared with Jay, Nitesh and Mann. |
+```
+PatentPulse/
+└── src/
+    ├── main/
+    │   ├── java/
+    │   │   └── com/
+    │   │       └── patentpulse/
+    │   │           ├── service/
+    │   │           │   ├── UploadStore.java       (File validation, safe storage and cleanup. Shared with Jay for hashing.)
+    │   │           │   └── LedgerService.java     (mine, draft, saveDraft, submit, validate and history. Shared with all five.)
+    │   │           └── web/
+    │   │               └── AppServlet.java          (Dashboard, editor, draft and submission routes. Shared with Jay, Nitesh and Mann.)
+    │   └── webapp/
+    │       └── WEB-INF/
+    │           └── views/
+    │               ├── editor.jsp                   (Draft, upload and submission form.)
+    │               ├── dashboard.jsp                (Own research listing, search and status filtering.)
+    │               └── document.jsp                 (Research details and version-history section. Shared with Jay and Nitesh.)
 
+```
 #### Routes
 
 GET /app/dashboard, GET /app/new, POST /app/draft, POST /app/submit, GET /app/document
@@ -579,15 +581,27 @@ Registration forces RESEARCHER. Registered passwords use BCrypt cost 12. Login r
 
 #### Files and responsibility
 
-| Project path | Responsibility |
-|---|---|
-| `src/main/java/com/patentpulse/web/AuthServlet.java` | Login, registration, logout, session rotation and session-scoped delay. |
-| `src/main/java/com/patentpulse/service/AuthService.java` | Account validation, BCrypt and active-user lookup. |
-| `src/main/java/com/patentpulse/web/SecurityFilter.java` | Route checks, CSRF, response headers and current-account refresh. |
-| `src/main/java/com/patentpulse/model/User.java` | Session identity and role helpers. |
-| `src/main/webapp/WEB-INF/views/auth.jsp` | Login and registration UI. |
-| `src/main/webapp/WEB-INF/views/csrf.jspf` | CSRF hidden-field fragment. |
-| `src/main/java/com/patentpulse/service/LedgerService.java` | Coordinate service-level role and ownership checks with all owners. |
+```
+PatentPulse/
+└── src/
+    ├── main/
+    │   ├── java/
+    │   │   └── com/
+    │   │       └── patentpulse/
+    │   │           ├── model/
+    │   │           │   └── User.java                    (Session identity and role helpers.)
+    │   │           ├── service/
+    │   │           │   ├── AuthService.java             (Account validation, BCrypt and active-user lookup.)
+    │   │           │   └── LedgerService.java           (Coordinate service-level role and ownership checks with all owners.)
+    │   │           └── web/
+    │   │               ├── AuthServlet.java             (Login, registration, logout, session rotation and session-scoped delay.)
+    │   │               └── SecurityFilter.java          (Route checks, CSRF, response headers and current-account refresh.)
+    │   └── webapp/
+    │       └── WEB-INF/
+    │           ├── views/
+    │           │   └── auth.jsp                     (Login and registration UI.)
+    │           └── csrf.jspf                        (CSRF hidden-field fragment.)
+```
 
 #### Routes
 
@@ -632,16 +646,31 @@ These are checks to run, not fresh passing results. Use the final merged source 
 UploadStore hashes a stored submission. Verification hashes a separate candidate stream and compares it to the selected version. Download checks authorisation and file existence, then streams the stored bytes. It does not automatically rehash the stored file.
 
 #### Files and responsibility
-
-| Project path | Responsibility |
-|---|---|
-| `src/main/java/com/patentpulse/util/Hashing.java` | Streaming SHA-256 utility. |
-| `src/main/java/com/patentpulse/web/FileServlet.java` | Authorised attachment download. |
-| `src/test/java/com/patentpulse/HashingTest.java` | Known vectors, changed bytes, empty stream and read boundaries. |
-| `src/main/java/com/patentpulse/service/LedgerService.java` | verify and the stored-hash comparison. Shared with all five. |
-| `src/main/java/com/patentpulse/service/UploadStore.java` | Upload-time hash integration, shared with Mohit. |
-| `src/main/java/com/patentpulse/web/AppServlet.java` | POST /verify handling, shared with Mohit, Nitesh and Mann. |
-| `src/main/webapp/WEB-INF/views/document.jsp` | Hash display, verification result and download link, shared with Mohit and Nitesh. |
+```
+PatentPulse/
+└── src/
+    ├── main/
+    │   ├── java/
+    │   │   └── com/
+    │   │       └── patentpulse/
+    │   │           ├── service/
+    │   │           │   ├── LedgerService.java           (verify and the stored-hash comparison. Shared with all five.)
+    │   │           │   └── UploadStore.java             (Upload-time hash integration, shared with Mohit.)
+    │   │           ├── util/
+    │   │           │   └── Hashing.java                 (Streaming SHA-256 utility.)
+    │   │           └── web/
+    │   │               ├── AppServlet.java              (POST /verify handling, shared with Mohit, Nitesh and Mann.)
+    │   │               └── FileServlet.java             (Authorised attachment download.)
+    │   └── webapp/
+    │       └── WEB-INF/
+    │           └── views/
+    │               └── document.jsp                 (Hash display, verification result and download link, shared with Mohit and Nitesh.)
+    └── test/
+        └── java/
+            └── com/
+                └── patentpulse/
+                    └── HashingTest.java             (Known vectors, changed bytes, empty stream and read boundaries.)
+```
 
 #### Routes
 
@@ -691,15 +720,30 @@ Admins assign up to two distinct active reviewers. Self-review is rejected. Each
 
 #### Files and responsibility
 
-| Project path | Responsibility |
-|---|---|
-| `src/main/java/com/patentpulse/service/ReviewPolicy.java` | Status calculation and terminal-state helper. |
-| `src/main/webapp/WEB-INF/views/queue.jsp` | Reviewer and administrator queue. |
-| `src/test/java/com/patentpulse/ReviewPolicyTest.java` | Threshold, rejection and terminal-state tests. |
-| `src/main/java/com/patentpulse/service/LedgerService.java` | reviews, queue, reviewers, assign, lockVersion and vote. Shared with all five. |
-| `src/main/java/com/patentpulse/web/AppServlet.java` | Queue, assignment and decision routes, shared with Mohit, Jay and Mann. |
-| `src/main/webapp/WEB-INF/views/document.jsp` | Assignment controls, decision form and feedback. Shared with Mohit and Jay. |
+```
+PatentPulse/
+└── src/
+    ├── main/
+    │   ├── java/
+    │   │   └── com/
+    │   │       └── patentpulse/
+    │   │           ├── service/
+    │   │           │   ├── ReviewPolicy.java            (Status calculation and terminal-state helper.)
+    │   │           │   └── LedgerService.java           (reviews, queue, reviewers, assign, lockVersion and vote. Shared with all five.)
+    │   │           └── web/
+    │   │               └── AppServlet.java              (Queue, assignment and decision routes, shared with Mohit, Jay and Mann.)
+    │   └── webapp/
+    │       └── WEB-INF/
+    │           ├── views/
+    │           │   ├── queue.jsp                    (Reviewer and administrator queue.)
+    │           │   └── document.jsp                 (Assignment controls, decision form and feedback. Shared with Mohit and Jay.)
+    └── test/
+        └── java/
+            └── com/
+                └── patentpulse/
+                    └── ReviewPolicyTest.java        (Threshold, rejection and terminal-state tests.)
 
+```
 #### Routes
 
 GET /app/review, GET /app/admin/queue, POST /app/admin/assign, POST /app/review/vote

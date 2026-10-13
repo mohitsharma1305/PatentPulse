@@ -477,48 +477,42 @@ The following are supplied local-demo screenshots using synthetic research data.
 
 ### Project Directory Structure
 
+```text
 PatentPulse/
 ├── pom.xml
 ├── config.example.env
 ├── START-DEMO.bat
 ├── START-DEMO.sh
-│
 ├── src/
 │   ├── main/
 │   │   ├── java/
 │   │   │   └── com/
 │   │   │       └── patentpulse/
-│   │   │           ├── config/       # Configuration and startup
-│   │   │           ├── dao/          # JDBC operations and transactions
-│   │   │           ├── model/        # Logged-in user model
-│   │   │           ├── service/      # Authentication and business rules
-│   │   │           ├── util/         # Hashing and error helpers
-│   │   │           └── web/          # Servlets and security filter
-│   │   │
-│   │   ├── resources/               # Application database schema
-│   │   │
+│   │   │           ├── config/
+│   │   │           ├── dao/
+│   │   │           ├── model/
+│   │   │           ├── service/
+│   │   │           ├── util/
+│   │   │           └── web/
+│   │   ├── resources/
 │   │   └── webapp/
-│   │       ├── assets/              # CSS and JavaScript
+│   │       ├── assets/
 │   │       └── WEB-INF/
-│   │           ├── web.xml          # Web application configuration
-│   │           └── views/           # JSP pages and shared fragments
-│   │
+│   │           ├── web.xml
+│   │           └── views/
 │   └── test/
 │       └── java/
 │           └── com/
-│               └── patentpulse/    # Hashing, policy, workflow tests
-│                                   # and local demo server
-│
-├── sql/                            # MySQL database and schema scripts
-├── samples/                        # Original, modified and revised files
-│
+│               └── patentpulse/
+├── sql/
+├── samples/
 ├── docs/
-│   ├── modules/                    # Five member-wise module guides
-│   ├── uml/                        # UML guide and use-case source
-│   └── screenshots/                # Local-demo screenshots
-│
-└── reports/                        # SRS, report, research paper and PPT
-    └── excel/                      # Weekly and daily report spreadsheets
+│   ├── modules/
+│   ├── uml/
+│   └── screenshots/
+└── reports/
+    └── excel/
+```
 
 ### Member 1: Mohit Sharma (Research Drafts, Uploads & Version History)
 

@@ -1026,17 +1026,6 @@ Use the shared integration report for recorded automated results. Member-specifi
 | Weekly report | [Weeks 1–12](https://drive.google.com/file/d/1qH0LV0P5n1XUYl7Ad2BPkcK9Jf4CR65F/view?usp=sharing) | Prepared |
 | Demo video | [Recording script](docs/DEMO_VIDEO_SCRIPT.md) | Recording pending |
 
-The linked documents and screenshots use the existing PatentPulse repository layout. Save this file as README.md at the repository root.
-
-### Suggested demonstration
-
-1. Log in and save a research draft.
-2. Submit a sample file and show its version, digest and receipt.
-3. Compare the original file, then an altered file.
-4. Assign reviewers and demonstrate a review decision.
-5. Submit a revised version and show preserved history.
-6. Show permitted account management and audit events.
-
 ---
 
 ## Quick Start
@@ -1059,28 +1048,7 @@ mvn -version
 START-DEMO.bat
 ```
 
-Linux/macOS demo:
-```sh
-chmod +x START-DEMO.sh
-./START-DEMO.sh
-```
-
 Open `http://localhost:8080/patentpulse`. The initial run downloads dependencies. Keep the terminal open and stop with Ctrl+C. 
-
-## Build and database deployment
-
-```sh
-mvn clean verify
-```
-
-The WAR is `target/patentpulse.war`. Use a compatible Tomcat 9 installation for the supplied `javax.servlet` application. MySQL setup is in `sql/create-database.sql` and `sql/schema.sql`. Set actual environment variables based on `config.example.env`: `DB_URL`, `DB_USER`, `DB_PASSWORD`, `UPLOAD_DIR`, `INIT_SCHEMA`, `DEMO_MODE` and the first-admin bootstrap settings. The application does not automatically read `.env` files.
-
-Configure a private upload directory and bootstrap the first admin. Remove bootstrap credentials afterwards. Review dependency patch levels and deployment controls before public hosting. The archive's dependency versions are a reproducibility baseline, not a claim that they are the newest secure releases.
-## Team Git Workflow
-
-Pull current main before starting a branch. Stage exact assigned files, describe actual changes in the commit, and open a pull request. Coordinate changes in `LedgerService.java`, `AppServlet.java`, `document.jsp`, `UploadStore.java` and `Database.java`. Member-name folders in the earlier distribution pack are wrappers, not repository directories.
-
-Do not commit local database files, uploads, secrets, `target/` or a Maven installation. Rebuild the WAR after source changes.
 
 ## Scope & Current Limitations
 

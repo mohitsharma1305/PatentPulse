@@ -1051,23 +1051,6 @@ Pull current main before starting a branch. Stage exact assigned files, describe
 
 Do not commit local database files, uploads, secrets, `target/` or a Maven installation. Rebuild the WAR after source changes.
 
-### Contributing to the existing repository
-
-```sh
-git switch main
-git pull --ff-only origin main
-git switch -c docs/patentpulse-readme
-```
-
-Edit the agreed files, inspect `git diff`, and stage exact paths. For a README-only update:
-
-```sh
-git add README.md
-git commit -m "docs: expand PatentPulse overview and module documentation"
-git push -u origin docs/patentpulse-readme
-```
-
-Open a pull request into `main`. Commit the linked documentation separately if it is not already present. Preserve existing team changes and do not force-push shared history.
 ## Scope & Current Limitations
 
 - Verification compares an uploaded candidate with a saved digest. Downloads do not automatically rehash the stored file.

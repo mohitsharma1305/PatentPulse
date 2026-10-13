@@ -26,8 +26,6 @@
 - [Week 11 — Integration and testing](#week-11-integration-and-testing)
 - [Week 12 — Submission deliverables](#week-12-report-presentation-and-final-demonstration)
 - [Quick start](#quick-start)
-- [Source layout and Git workflow](#source-layout-and-git-workflow)
-
 ---
 
 ## Week 1: Project Administration and Abstract

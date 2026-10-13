@@ -964,13 +964,11 @@ Use the shared integration report for recorded automated results. Member-specifi
 | Deliverable | Resource | Status |
 |---|---|---|
 | Project report | [Word document](https://docs.google.com/document/d/1VGnz2tlHKocOxwPtAJICDm8wZwZ3FXKU/edit?usp=sharing&ouid=116020988422796059772&rtpof=true&sd=true) | Prepared; team details to complete |
-| Research paper | [Paper draft]([https://docs.google.com/document/d/1G6VNNXgvDJ2NVXIMcDMhhW8dAvvgB_u8/edit?usp=sharing&ouid=116020988422796059772&rtpof=true&sd=true](https://drive.google.com/file/d/1-I-SIa14MsZsjQuyYNhEftY0Hepep2zP/view?usp=sharing)) | Unpublished design and implementation draft |
-| SRS | [Requirements](https://docs.google.com/document/d/18uhwL6LJq630_SILQipUaQPmX2MC--yu/edit?usp=sharing&ouid=116020988422796059772&rtpof=true&sd=true) | Prepared |
+| Research paper | [Paper draft]([https://drive.google.com/file/d/1-I-SIa14MsZsjQuyYNhEftY0Hepep2zP/view?usp=sharing]) | Unpublished design and implementation draft |
+| SRS | [Requirements](https://drive.google.com/file/d/12Y_sHfc7zVybGAvwn7ySOf90QEhWdJwl/view?usp=sharing) | Prepared |
 | Presentation | [13-slide PPT](reports/PatentPulse_Presentation.pptx) | Prepared |
-| UML design | [Design README](docs/uml/README.md) | Prepared |
 | Module guides | [All five members](docs/modules/README.md) | Prepared |
-| Weekly report | [Weeks 1–12](reports/Weekly_Report_Weeks_1_to_12.md) · [Excel](reports/excel/PatentPulse_12_Week_Report.xlsx) | Draft entries to confirm |
-| Leader daily report | [Mohit's Excel](reports/excel/Mohit_PatentPulse_84_Day_Report.xlsx) | Draft entries to confirm |
+| Weekly report | [Weeks 1–12](reports/Weekly_Report_Weeks_1_to_12.md)
 | Demo video | [Recording script](docs/DEMO_VIDEO_SCRIPT.md) | Recording pending |
 
 The linked documents and screenshots use the existing PatentPulse repository layout. Save this file as README.md at the repository root.

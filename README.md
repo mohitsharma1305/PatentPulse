@@ -478,29 +478,48 @@ The following are supplied local-demo screenshots using synthetic research data.
 
 ### Project Directory Structure
 
-| Folder / File | Contents and Purpose |
-| :--- | :--- |
-| `pom.xml` | Maven dependencies, compiler, tests and WAR packaging |
-| `src/main/java/com/patentpulse/config/` | Configuration and application startup |
-| `src/main/java/com/patentpulse/dao/` | JDBC operations and transactions |
-| `src/main/java/com/patentpulse/model/` | Logged-in user model |
-| `src/main/java/com/patentpulse/service/` | Authentication, research, upload and review rules |
-| `src/main/java/com/patentpulse/util/` | Hashing and error helpers |
-| `src/main/java/com/patentpulse/web/` | Servlets and security filter |
-| `src/main/resources/` | Application database schema |
-| `src/main/webapp/WEB-INF/views/` | JSP interfaces and shared fragments |
-| `src/main/webapp/assets/` | CSS and JavaScript |
-| `src/main/webapp/WEB-INF/web.xml` | Web application configuration |
-| `src/test/java/com/patentpulse/` | Hashing, policy and workflow tests; demo server |
-| `sql/` | MySQL database and schema scripts |
-| `samples/` | Original, changed and revised sample documents |
-| `docs/modules/` | Five member-wise module guides |
-| `docs/uml/` | UML guide and use-case source |
-| `docs/screenshots/` | Supplied local-demo screenshots |
-| `reports/` | SRS, report, paper draft, PPT and weekly report |
-| `reports/excel/` | Existing weekly and daily report drafts |
-| `START-DEMO.bat / START-DEMO.sh` | Local demonstration launch scripts |
-| `config.example.env` | Environment-variable reference; not automatically loaded |
+PatentPulse/
+├── pom.xml
+├── config.example.env
+├── START-DEMO.bat
+├── START-DEMO.sh
+│
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── patentpulse/
+│   │   │           ├── config/       # Configuration and startup
+│   │   │           ├── dao/          # JDBC operations and transactions
+│   │   │           ├── model/        # Logged-in user model
+│   │   │           ├── service/      # Authentication and business rules
+│   │   │           ├── util/         # Hashing and error helpers
+│   │   │           └── web/          # Servlets and security filter
+│   │   │
+│   │   ├── resources/               # Application database schema
+│   │   │
+│   │   └── webapp/
+│   │       ├── assets/              # CSS and JavaScript
+│   │       └── WEB-INF/
+│   │           ├── web.xml          # Web application configuration
+│   │           └── views/           # JSP pages and shared fragments
+│   │
+│   └── test/
+│       └── java/
+│           └── com/
+│               └── patentpulse/    # Hashing, policy, workflow tests
+│                                   # and local demo server
+│
+├── sql/                            # MySQL database and schema scripts
+├── samples/                        # Original, modified and revised files
+│
+├── docs/
+│   ├── modules/                    # Five member-wise module guides
+│   ├── uml/                        # UML guide and use-case source
+│   └── screenshots/                # Local-demo screenshots
+│
+└── reports/                        # SRS, report, research paper and PPT
+    └── excel/                      # Weekly and daily report spreadsheets
 
 ### Member 1: Mohit Sharma (Research Drafts, Uploads & Version History)
 

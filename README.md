@@ -86,7 +86,7 @@ The supplied implementation allows any authenticated role to use personal resear
 - Record relevant state changes and verification outcomes in the audit log.
 - Generate a printable receipt from the selected version.
 
-See the [complete SRS](reports/PatentPulse_SRS.docx) for functional requirements and acceptance checks.
+See the [complete SRS](https://docs.google.com/document/d/18uhwL6LJq630_SILQipUaQPmX2MC--yu/edit?usp=sharing&ouid=116020988422796059772&rtpof=true&sd=true) for functional requirements and acceptance checks.
 
 ### Architecture
 
@@ -963,9 +963,9 @@ Use the shared integration report for recorded automated results. Member-specifi
 
 | Deliverable | Resource | Status |
 |---|---|---|
-| Project report | [Word document](reports/PatentPulse_Project_Report.docx) | Prepared; team details to complete |
-| Research paper | [Paper draft](reports/PatentPulse_Research_Paper_Draft.docx) | Unpublished design and implementation draft |
-| SRS | [Requirements](reports/PatentPulse_SRS.docx) | Prepared |
+| Project report | [Word document](https://docs.google.com/document/d/1VGnz2tlHKocOxwPtAJICDm8wZwZ3FXKU/edit?usp=sharing&ouid=116020988422796059772&rtpof=true&sd=true) | Prepared; team details to complete |
+| Research paper | [Paper draft](https://docs.google.com/document/d/1G6VNNXgvDJ2NVXIMcDMhhW8dAvvgB_u8/edit?usp=sharing&ouid=116020988422796059772&rtpof=true&sd=true) | Unpublished design and implementation draft |
+| SRS | [Requirements](https://docs.google.com/document/d/18uhwL6LJq630_SILQipUaQPmX2MC--yu/edit?usp=sharing&ouid=116020988422796059772&rtpof=true&sd=true) | Prepared |
 | Presentation | [13-slide PPT](reports/PatentPulse_Presentation.pptx) | Prepared |
 | UML design | [Design README](docs/uml/README.md) | Prepared |
 | Module guides | [All five members](docs/modules/README.md) | Prepared |

@@ -86,7 +86,7 @@ The supplied implementation allows any authenticated role to use personal resear
 - Record relevant state changes and verification outcomes in the audit log.
 - Generate a printable receipt from the selected version.
 
-See the [complete SRS](https://docs.google.com/document/d/18uhwL6LJq630_SILQipUaQPmX2MC--yu/edit?usp=sharing&ouid=116020988422796059772&rtpof=true&sd=true) for functional requirements and acceptance checks.
+See the [complete SRS](https://drive.google.com/file/d/12Y_sHfc7zVybGAvwn7ySOf90QEhWdJwl/view?usp=sharing) for functional requirements and acceptance checks.
 
 ### Architecture
 

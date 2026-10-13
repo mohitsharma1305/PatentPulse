@@ -40,13 +40,13 @@
 
 ### Team members
 
-| Member | Module ownership | Module guide | Enrolment number |
+| Member | Module ownership | RTU Roll no. | Enrolment number |
 |---|---|---|---|
-| **Mohit Sharma** | Research drafts, uploads, version history and coordination | [Mohit](docs/modules/README_Mohit.md) | 24E1ARADM40P104 |
-| **Meet** | Login, registration, sessions and access control | [Meet](docs/modules/README_Meet.md) | 24E1ARADM30P101 |
-| **Jay** | SHA-256 generation, verification and downloads | [Jay](docs/modules/README_Jay.md) | 24E1ARADM40P068 |
-| **Nitesh** | Reviewer assignments, decisions and feedback | [Nitesh](docs/modules/README_Nitesh.md) | 24E1ARADM30P114 |
-| **Mann Jain** | Administration, audit logs and receipts | [Mann](docs/modules/README_Mann.md) | 24E1ARADM30P092 |
+| **Mohit Sharma** | Research drafts, uploads, version history and coordination | 24EARAD104 | 24E1ARADM40P104 |
+| **Meet** | Login, registration, sessions and access control | 24EARAD101 | 24E1ARADM30P101 |
+| **Jay** | SHA-256 generation, verification and downloads | 24EARAD068 | 24E1ARADM40P068 |
+| **Nitesh** | Reviewer assignments, decisions and feedback | 24EARAD114 | 24E1ARADM30P114 |
+| **Mann Jain** | Administration, audit logs and receipts | 24EARAD092 | 24E1ARADM30P092 |
 
 
 ### Abstract

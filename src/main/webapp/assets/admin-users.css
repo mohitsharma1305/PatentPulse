@@ -1,0 +1,136 @@
+:root {
+  color-scheme: light;
+  font: 16px/1.5 system-ui, sans-serif;
+  color: #18313b;
+  background: #f4f7f8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  width: min(1100px, calc(100% - 32px));
+  margin: 48px auto;
+}
+
+.eyebrow {
+  color: #247e78;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+h1 {
+  margin: 4px 0;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+}
+
+.intro,
+.muted {
+  color: #60747c;
+}
+
+.panel {
+  margin-top: 28px;
+  overflow-x: auto;
+  border: 1px solid #dce5e8;
+  border-radius: 12px;
+  background: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th,
+td {
+  padding: 16px;
+  border-bottom: 1px solid #e8edef;
+  vertical-align: middle;
+}
+
+th {
+  color: #60747c;
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+td small {
+  display: block;
+  color: #60747c;
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+
+.active {
+  color: #17664b;
+  background: #e6f5ed;
+}
+
+.disabled {
+  color: #7a4d26;
+  background: #fff1df;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+select,
+button {
+  min-height: 38px;
+  padding: 7px 10px;
+  border: 1px solid #c8d5d9;
+  border-radius: 7px;
+  background: white;
+  color: inherit;
+  font: inherit;
+}
+
+button {
+  border-color: #247e78;
+  background: #247e78;
+  color: white;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1b6863;
+}
+
+.empty {
+  padding: 32px;
+  color: #60747c;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  main {
+    margin: 28px auto;
+  }
+
+  th,
+  td {
+    padding: 12px;
+  }
+}

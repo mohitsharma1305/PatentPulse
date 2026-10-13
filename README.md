@@ -1,34 +1,32 @@
-# PatentPulse — Research Document Management & Internal Review
+# PatentPulse: Research Document Management, File Verification & Internal Review Portal
 
 ![Java](https://img.shields.io/badge/Java-17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Servlet and JSP](https://img.shields.io/badge/Servlet_%26_JSP-Tomcat_9-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=black)
+![Servlets and JSP](https://img.shields.io/badge/Servlets_%26_JSP-Tomcat_9-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=black)
 ![Database](https://img.shields.io/badge/Database-MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![Build](https://img.shields.io/badge/Build-Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
-![Integrity](https://img.shields.io/badge/File_Comparison-SHA--256-00897B?style=for-the-badge)
 
-**Keep research drafts, submitted versions, review decisions and file fingerprints together.**
+> **Project Repository:** [mohitsharma1305/PatentPulse](https://github.com/mohitsharma1305/PatentPulse)
+>
+> **Local Demonstration:** `http://localhost:8080/patentpulse` after starting the demo server.
 
-[Detailed weekly plan](docs/WEEKLY_REPORTS_WEEK_1_TO_12.md) · [Repository](https://github.com/mohitsharma1305/PatentPulse) · [Quick start](#quick-start) · [Team](#team-members) · [UML](#week-5-uml-and-system-design) · [Deliverables](#week-12-report-presentation-and-final-demonstration)
+> [!IMPORTANT]
+> ### 🔑 Default Login Credentials for Local Testing & Evaluation
+> These synthetic accounts are available in demo mode. They are not production credentials.
+>
+> | Persona / Role | Email | Password | Access & Privileges |
+> | :--- | :--- | :--- | :--- |
+> | **Administrator** | `admin@demo.local` | `PatentPulse!2026` | Assign reviewers, manage eligible accounts and inspect audit events. |
+> | **Researcher** | `researcher@demo.local` | `PatentPulse!2026` | Save drafts, submit versions, view history and verify files. |
+> | **Reviewer 1** | `reviewer1@demo.local` | `PatentPulse!2026` | Access assigned documents and record a decision. |
+> | **Reviewer 2** | `reviewer2@demo.local` | `PatentPulse!2026` | Provide a second independent review when assigned. |
+>
+> Run `START-DEMO.bat` on Windows or `sh START-DEMO.sh` on Linux/macOS with JDK 17 and Maven installed.
 
-> **Integration baseline:** Missing application files have been restored from the supplied complete project archive while retaining the existing team Java files and administrator page. Week headings organise the agreed 12-week phases; they are not a claim that work occurred on particular historical dates. See [integration validation](docs/INTEGRATION-VALIDATION.md) for checks and remaining deployment work.
+The week headings below organise the project into the same ten sections as the supplied README template. They describe the implementation and deliverables, not a dated attendance record. The separate academic reporting plan covers twelve weeks.
 
-> **Deployment:** A local demo is available in the supplied source. No public deployment URL has been confirmed.
-
-## Contents
-
-- [Week 1 — Project administration and abstract](#week-1-project-administration-and-abstract)
-- [Week 2 — Initial research and problem analysis](#week-2-initial-research-and-problem-analysis)
-- [Week 3 — Security and patent background](#week-3-security-and-patent-background)
-- [Week 4 — Requirements and architecture](#week-4-requirements-and-architecture)
-- [Week 5 — UML and system design](#week-5-uml-and-system-design)
-- [Week 6 — Database design and interface](#week-6-database-design-and-interface)
-- [Weeks 7–10 — Module implementation](#weeks-710-module-implementation)
-- [Week 11 — Integration and testing](#week-11-integration-and-testing)
-- [Week 12 — Submission deliverables](#week-12-report-presentation-and-final-demonstration)
-- [Quick start](#quick-start)
 ---
 
-## Week 1: Project Administration and Abstract
+## Week 1: Project Administration & Abstract
 
 ### Project administration
 
@@ -62,40 +60,9 @@ The application uses Java 17, Servlets, JSP, JDBC and MySQL. Files are held in p
 
 PatentPulse supports traceability within a research team or institution. Its receipts and hashes are application records, not patent grants, digital signatures or independent proof of authorship.
 
-## Week 2: Initial Research and Problem Analysis
+---
 
-### Problem statement
-
-The application addresses four practical needs:
-
-1. Keep drafts and submitted versions organised under one research item.
-2. Preserve the metadata of the exact version reviewed.
-3. Restrict access to owners, assigned reviewers and administrators.
-4. Compare a candidate file with a recorded fingerprint and retain review feedback.
-
-### Intended users and example
-
-A researcher submits a report as version 1. An administrator assigns two reviewers. If a reviewer requests revision, the researcher uploads version 2. Version 1 keeps its own file details and decisions, while version 2 begins a separate review. The researcher can compare a local copy against either accessible version to check whether its SHA-256 fingerprint matches.
-
-### Research approach
-
-The project documentation covers document versioning, hashing, password protection, upload safety and patent-process boundaries. References appear in the accompanying paper draft. No user study, performance benchmark or exhaustive literature-review count is claimed.
-
-## Week 3: Security and Patent Background
-
-| Topic | Application behaviour or boundary |
-|---|---|
-| File integrity | SHA-256 compares candidate bytes with a saved digest. |
-| Passwords | BCrypt protects stored passwords; file hashes are not used as password hashes. |
-| Upload safety | Size limits, extension checks, basic content checks and generated storage names. |
-| Access | Session authentication, role checks and version-specific permissions. |
-| Request protection | POST operations require a session CSRF token. |
-| Patent information | Internal approval does not determine patentability or grant legal rights. |
-| Trust | Administrators and database operators remain trusted; there is no distributed ledger. |
-
-Technical and background reading is listed in the [research-paper draft](reports/PatentPulse_Research_Paper_Draft.docx). Confidential research should follow the institution's disclosure policy.
-
-## Week 4: Requirements and Architecture
+## Week 2: User Roles, SRS & System Architecture
 
 ### User roles
 
@@ -142,7 +109,40 @@ flowchart TD
 
 JSP pages render the interface. Servlets handle requests, services apply business rules and the Database helper executes prepared JDBC operations. The local demo uses H2 and embedded Tomcat.
 
-## Week 5: UML and System Design
+### Functional Modules
+
+| Module | Member | Main Responsibility |
+| :--- | :--- | :--- |
+| Module 1 | Mohit Sharma | Drafts, uploads, version history and project coordination |
+| Module 2 | Meet | Login, registration, sessions and access control |
+| Module 3 | Jay | SHA-256, file verification and downloads |
+| Module 4 | Nitesh | Reviewer assignments, decisions and feedback |
+| Module 5 | Mann Jain | Administration, audit events and receipts |
+
+### Relational Database Strategy
+
+- **Prepared JDBC operations:** Database helpers bind parameters for application queries and updates.
+- **Connection management:** HikariCP manages the connection pool and the application listener closes it at shutdown.
+- **Transactional workflows:** Related database operations use transactions. Files are stored separately in a private directory.
+- **Version identity:** Unique research/version and version/reviewer pairs prevent duplicated numbering and assignment records.
+- **Demonstration database:** H2 supports the embedded local demo and automated workflows; MySQL is the configured external database.
+
+### Non-Functional Requirements
+
+| Requirement | Implementation or Evaluation Boundary |
+| :--- | :--- |
+| Security | BCrypt passwords, session checks, CSRF tokens and per-record authorisation |
+| Upload handling | Supported formats, nonempty files, 10 MiB maximum, generated storage names |
+| Maintainability | Servlets, services, database helpers, JSP views and tests have separate responsibilities |
+| Portability | Java 17 / Servlet 4.0 baseline with Tomcat 9; environment-based configuration |
+| Reliability | Database transactions and attempted cleanup of files after failed submissions |
+| Performance | Streaming hashing and pooled database connections; no measured latency or load-test claim |
+
+---
+
+## Week 3: UML Architecture & System Design
+
+The diagrams describe the current source structure, request flows, version states and database relationships.
 
 ### Use cases
 
@@ -333,7 +333,48 @@ The local demo substitutes embedded Tomcat and H2. Public TLS termination and ba
 
 Formal use-case source: [PlantUML](docs/uml/use-cases.puml). Full design guide: [UML README](docs/uml/README.md).
 
-## Week 6: Database Design and Interface
+### Authentication Sequence: Login & Session Lifecycle
+
+```mermaid
+sequenceDiagram
+  actor User
+  participant Servlet as AuthServlet
+  participant Auth as AuthService
+  participant DB as Database
+  User->>Servlet: Submit credentials and CSRF token
+  Servlet->>Auth: login(email, password)
+  Auth->>DB: Load account
+  DB-->>Auth: Account and password hash
+  Auth->>Auth: Check active status and BCrypt password
+  alt Valid credentials
+    Auth-->>Servlet: User identity
+    Servlet->>Servlet: Rotate session ID and CSRF token
+    Servlet-->>User: Redirect to application
+  else Invalid credentials
+    Auth-->>Servlet: Authentication failure
+    Servlet-->>User: Login error
+  end
+```
+
+### Activity Diagram: Protected Request Handling
+
+```mermaid
+flowchart TD
+  A[HTTP request] --> B{Public route?}
+  B -->|Yes| C[Continue to route]
+  B -->|No| D{Active session user?}
+  D -->|No| E[Redirect to login]
+  D -->|Yes| F{POST request?}
+  F -->|Yes| G{Valid CSRF token?}
+  G -->|No| H[Reject request]
+  G -->|Yes| I[Apply route permissions]
+  F -->|No| I
+  I --> J[Controller and service access checks]
+```
+
+---
+
+## Week 4: Database Design & UI Mock-ups
 
 ### Database tables
 
@@ -431,20 +472,39 @@ The following are supplied local-demo screenshots using synthetic research data.
 
 </details>
 
-## Weeks 7–10: Module Implementation
+---
 
-These phases cover development across the five modules. The table is an implementation plan, not a retrospective activity record.
+## Week 5: Project Structure & Module 1 Implementation
 
-| Phase | Focus |
-|---|---|
-| Week 7 | Account/session foundations, drafts and upload storage |
-| Week 8 | Hash comparison, downloads and version-history integration |
-| Week 9 | Reviewer allocation, decisions and status transitions |
-| Week 10 | Account administration, audit records, receipts and module integration |
+### Project Directory Structure
 
-### Mohit: Module ownership
+| Folder / File | Contents and Purpose |
+| :--- | :--- |
+| `pom.xml` | Maven dependencies, compiler, tests and WAR packaging |
+| `src/main/java/com/patentpulse/config/` | Configuration and application startup |
+| `src/main/java/com/patentpulse/dao/` | JDBC operations and transactions |
+| `src/main/java/com/patentpulse/model/` | Logged-in user model |
+| `src/main/java/com/patentpulse/service/` | Authentication, research, upload and review rules |
+| `src/main/java/com/patentpulse/util/` | Hashing and error helpers |
+| `src/main/java/com/patentpulse/web/` | Servlets and security filter |
+| `src/main/resources/` | Application database schema |
+| `src/main/webapp/WEB-INF/views/` | JSP interfaces and shared fragments |
+| `src/main/webapp/assets/` | CSS and JavaScript |
+| `src/main/webapp/WEB-INF/web.xml` | Web application configuration |
+| `src/test/java/com/patentpulse/` | Hashing, policy and workflow tests; demo server |
+| `sql/` | MySQL database and schema scripts |
+| `samples/` | Original, changed and revised sample documents |
+| `docs/modules/` | Five member-wise module guides |
+| `docs/uml/` | UML guide and use-case source |
+| `docs/screenshots/` | Supplied local-demo screenshots |
+| `reports/` | SRS, report, paper draft, PPT and weekly report |
+| `reports/excel/` | Existing weekly and daily report drafts |
+| `START-DEMO.bat / START-DEMO.sh` | Local demonstration launch scripts |
+| `config.example.env` | Environment-variable reference; not automatically loaded |
 
-#### Research drafts uploads and version history
+### Member 1: Mohit Sharma (Research Drafts, Uploads & Version History)
+
+#### Role & Scope of Work
 
 Saving metadata creates a draft. Submission writes the file and inserts a metadata snapshot with a new version number. Later submissions preserve old snapshots. AppServlet attempts storage cleanup when submission persistence fails.
 
@@ -481,10 +541,27 @@ Meet supplies the current session user; Jay owns SHA-256 implementation; Nitesh 
 
 These are checks to run, not fresh passing results. Use the final merged source and record actual output.
 
+#### Technical Challenges & Handling
 
-### Meet: Module ownership
+1. **File and database consistency:** The controller attempts to remove a saved file if submission persistence fails. Filesystem and database writes are not one atomic transaction.
+2. **Preserving previous submissions:** Each upload creates a separate numbered version with its own metadata snapshot.
+3. **Shared page ownership:** Research details share document.jsp with verification and review controls; changes must be coordinated with Jay and Nitesh.
 
-#### Authentication sessions and access control
+#### Implemented Deliverables
+
+- Draft editing and submission interface.
+- Own-research dashboard and version history.
+- Validated private file storage.
+
+**Module documentation:** [Read Mohit Sharma’s guide](docs/modules/README_Mohit.md).
+
+---
+
+## Week 6: Module 2 & Module 3 Implementation
+
+### Member 2: Meet (Authentication, Sessions & Access Control)
+
+#### Role & Scope of Work
 
 Registration forces RESEARCHER. Registered passwords use BCrypt cost 12. Login rotates session ID and CSRF token. Sessions expire after 30 minutes. The filter refreshes account role and active status on requests.
 
@@ -522,10 +599,23 @@ Coordinate users-table fields and account-state changes with Mann. Every module 
 
 These are checks to run, not fresh passing results. Use the final merged source and record actual output.
 
+#### Technical Challenges & Handling
 
-### Jay: Module ownership
+1. **Session fixation:** Successful login rotates the session identifier and refreshes the CSRF token.
+2. **Changed account permissions:** The filter refreshes the current account so role and active-status changes affect subsequent requests.
+3. **Unauthorised operations:** Route-level checks are combined with ownership and assignment checks in service operations.
 
-#### File hashing verification and downloads
+#### Implemented Deliverables
+
+- Login, registration and logout interface.
+- BCrypt password handling and session identity.
+- CSRF and protected-route checks.
+
+**Module documentation:** [Read Meet’s guide](docs/modules/README_Meet.md).
+
+### Member 3: Jay (SHA-256 Verification & Downloads)
+
+#### Role & Scope of Work
 
 UploadStore hashes a stored submission. Verification hashes a separate candidate stream and compares it to the selected version. Download checks authorisation and file existence, then streams the stored bytes. It does not automatically rehash the stored file.
 
@@ -563,10 +653,27 @@ Coordinate storage and upload cleanup with Mohit, access checks with Meet and ve
 
 These are checks to run, not fresh passing results. Use the final merged source and record actual output.
 
+#### Technical Challenges & Handling
 
-### Nitesh: Module ownership
+1. **Processing file contents:** Hashing reads a stream rather than requiring the complete document in memory.
+2. **Explaining verification:** A matching digest indicates matching candidate bytes against the stored digest; it does not establish patent rights or authorship.
+3. **Download access:** FileServlet checks access before serving bytes. Automatic rehashing of stored files during download is not implemented.
 
-#### Reviewer assignments decisions and feedback
+#### Implemented Deliverables
+
+- SHA-256 utility and test cases.
+- Candidate-file comparison with match/mismatch results.
+- Authorised downloads.
+
+**Module documentation:** [Read Jay’s guide](docs/modules/README_Jay.md).
+
+---
+
+## Week 7: Module 4 Implementation
+
+### Member 4: Nitesh (Reviewer Assignments, Decisions & Feedback)
+
+#### Role & Scope of Work
 
 Admins assign up to two distinct active reviewers. Self-review is rejected. Each assignment accepts one vote. Any rejection closes the version as NEEDS_REVISION; two approvals produce INTERNALLY_REVIEWED. Comments require 10–3000 characters under the source validation rules.
 
@@ -603,10 +710,27 @@ Although admins use assignment controls, this development feature belongs to Nit
 
 These are checks to run, not fresh passing results. Use the final merged source and record actual output.
 
+#### Technical Challenges & Handling
 
-### Mann: Module ownership
+1. **Conflicting decisions:** ReviewPolicy applies any rejection before the two-approval outcome.
+2. **Duplicate and self-review:** Assignment validation rejects repeated reviewers and self-review; each assignment permits one decision.
+3. **Closed review versions:** Terminal versions cannot receive further decisions; a revision must be submitted as a new version.
 
-#### Administration audit and receipts
+#### Implemented Deliverables
+
+- Reviewer queue and assignment controls.
+- Decision and feedback processing.
+- Review-status policy and unit tests.
+
+**Module documentation:** [Read Nitesh’s guide](docs/modules/README_Nitesh.md).
+
+---
+
+## Week 8: Module 5 Implementation & Summary
+
+### Member 5: Mann Jain (Administration, Audit Logs & Receipts)
+
+#### Role & Scope of Work
 
 Admins can update non-admin researcher/reviewer accounts. Existing admin accounts cannot be changed through this page. Unfinished active reviewer assignments block deactivation or demotion. The audit view shows the latest 200 events. Receipts read version data and have no separate table.
 
@@ -643,12 +767,31 @@ Coordinate account semantics with Meet, receipt version data with Mohit and revi
 
 These are checks to run, not fresh passing results. Use the final merged source and record actual output.
 
+#### Technical Challenges & Handling
 
-### Existing administration view
+1. **Protected administration accounts:** The administration page does not allow editing existing admin accounts.
+2. **Outstanding reviewer work:** Unfinished reviewer assignments block deactivation or demotion.
+3. **Interpreting receipts and audit trails:** Receipts display version data; ordinary database audit records are not an independently tamper-proof ledger.
 
-The administrator user-management view is `src/main/webapp/WEB-INF/views/users.jsp`, with styles in `src/main/webapp/assets/admin-users.css`. It displays account roles and status, allows researcher/reviewer role and activation changes, and shows administrator accounts as protected.
+#### Implemented Deliverables
 
-### Shared-file coordination
+- Account role and status management.
+- Audit event listing.
+- Printable version receipt.
+
+**Module documentation:** [Read Mann Jain’s guide](docs/modules/README_Mann.md).
+
+### Summary of Module Distribution
+
+| Module | Member | Primary Focus | Guide |
+| :--- | :--- | :--- | :--- |
+| Module 1 | Mohit Sharma | Research Drafts, Uploads & Version History | [Module 1](docs/modules/README_Mohit.md) |
+| Module 2 | Meet | Authentication, Sessions & Access Control | [Module 2](docs/modules/README_Meet.md) |
+| Module 3 | Jay | SHA-256 Verification & Downloads | [Module 3](docs/modules/README_Jay.md) |
+| Module 4 | Nitesh | Reviewer Assignments, Decisions & Feedback | [Module 4](docs/modules/README_Nitesh.md) |
+| Module 5 | Mann Jain | Administration, Audit Logs & Receipts | [Module 5](docs/modules/README_Mann.md) |
+
+### Shared-File Coordination
 
 | Shared file | Members coordinating changes |
 |---|---|
@@ -660,7 +803,9 @@ The administrator user-management view is `src/main/webapp/WEB-INF/views/users.j
 
 Shared means several modules use sections of one file. It does not mean each member should upload a separate full copy over the others' changes.
 
-## Week 11: Integration and Testing
+---
+
+## Week 9: System Integration & End-to-End (E2E) Testing
 
 ### Available test evidence
 
@@ -699,8 +844,122 @@ mvn clean verify
 ```
 
 Record the tested commit, Java/Maven versions and actual build output. No latency benchmark, load-test result or independent security audit has been supplied.
+### Member 1: Mohit Sharma — Integration Responsibilities
 
-## Week 12: Report, Presentation and Final Demonstration
+#### Integration & Testing Role
+
+Connect and validate research drafts, uploads & version history against the shared application.
+
+#### Work & Scope
+
+- Validate draft editing and submission interface.
+- Validate own-research dashboard and version history.
+- Validate validated private file storage.
+
+#### Integration Risks & Handling
+
+- **File and database consistency:** The controller attempts to remove a saved file if submission persistence fails. Filesystem and database writes are not one atomic transaction.
+- **Preserving previous submissions:** Each upload creates a separate numbered version with its own metadata snapshot.
+- **Shared page ownership:** Research details share document.jsp with verification and review controls; changes must be coordinated with Jay and Nitesh.
+
+#### Evidence and Remaining Checks
+
+Use the shared integration report for recorded automated results. Member-specific manual checks require their own observed result; module ownership does not establish who executed a test.
+
+### Member 2: Meet — Integration Responsibilities
+
+#### Integration & Testing Role
+
+Connect and validate authentication, sessions & access control against the shared application.
+
+#### Work & Scope
+
+- Validate login, registration and logout interface.
+- Validate bcrypt password handling and session identity.
+- Validate csrf and protected-route checks.
+
+#### Integration Risks & Handling
+
+- **Session fixation:** Successful login rotates the session identifier and refreshes the CSRF token.
+- **Changed account permissions:** The filter refreshes the current account so role and active-status changes affect subsequent requests.
+- **Unauthorised operations:** Route-level checks are combined with ownership and assignment checks in service operations.
+
+#### Evidence and Remaining Checks
+
+Use the shared integration report for recorded automated results. Member-specific manual checks require their own observed result; module ownership does not establish who executed a test.
+
+### Member 3: Jay — Integration Responsibilities
+
+#### Integration & Testing Role
+
+Connect and validate sha-256 verification & downloads against the shared application.
+
+#### Work & Scope
+
+- Validate sha-256 utility and test cases.
+- Validate candidate-file comparison with match/mismatch results.
+- Validate authorised downloads.
+
+#### Integration Risks & Handling
+
+- **Processing file contents:** Hashing reads a stream rather than requiring the complete document in memory.
+- **Explaining verification:** A matching digest indicates matching candidate bytes against the stored digest; it does not establish patent rights or authorship.
+- **Download access:** FileServlet checks access before serving bytes. Automatic rehashing of stored files during download is not implemented.
+
+#### Evidence and Remaining Checks
+
+Use the shared integration report for recorded automated results. Member-specific manual checks require their own observed result; module ownership does not establish who executed a test.
+
+### Member 4: Nitesh — Integration Responsibilities
+
+#### Integration & Testing Role
+
+Connect and validate reviewer assignments, decisions & feedback against the shared application.
+
+#### Work & Scope
+
+- Validate reviewer queue and assignment controls.
+- Validate decision and feedback processing.
+- Validate review-status policy and unit tests.
+
+#### Integration Risks & Handling
+
+- **Conflicting decisions:** ReviewPolicy applies any rejection before the two-approval outcome.
+- **Duplicate and self-review:** Assignment validation rejects repeated reviewers and self-review; each assignment permits one decision.
+- **Closed review versions:** Terminal versions cannot receive further decisions; a revision must be submitted as a new version.
+
+#### Evidence and Remaining Checks
+
+Use the shared integration report for recorded automated results. Member-specific manual checks require their own observed result; module ownership does not establish who executed a test.
+
+### Member 5: Mann Jain — Integration Responsibilities
+
+#### Integration & Testing Role
+
+Connect and validate administration, audit logs & receipts against the shared application.
+
+#### Work & Scope
+
+- Validate account role and status management.
+- Validate audit event listing.
+- Validate printable version receipt.
+
+#### Integration Risks & Handling
+
+- **Protected administration accounts:** The administration page does not allow editing existing admin accounts.
+- **Outstanding reviewer work:** Unfinished reviewer assignments block deactivation or demotion.
+- **Interpreting receipts and audit trails:** Receipts display version data; ordinary database audit records are not an independently tamper-proof ledger.
+
+#### Evidence and Remaining Checks
+
+Use the shared integration report for recorded automated results. Member-specific manual checks require their own observed result; module ownership does not establish who executed a test.
+
+
+---
+
+## Week 10: Final System Evaluation, Deliverables & Project Submission
+
+### Project Deliverables & Artifacts
 
 | Deliverable | Resource | Status |
 |---|---|---|
@@ -714,7 +973,7 @@ Record the tested commit, Java/Maven versions and actual build output. No latenc
 | Leader daily report | [Mohit's Excel](reports/excel/Mohit_PatentPulse_84_Day_Report.xlsx) | Draft entries to confirm |
 | Demo video | [Recording script](docs/DEMO_VIDEO_SCRIPT.md) | Recording pending |
 
-These relative links use the supplied documentation-pack layout. Upload the matching `docs/` and `reports/` files alongside this README for the links to work on GitHub.
+The linked documents and screenshots use the existing PatentPulse repository layout. Save this file as README.md at the repository root.
 
 ### Suggested demonstration
 
@@ -724,6 +983,25 @@ These relative links use the supplied documentation-pack layout. Upload the matc
 4. Assign reviewers and demonstrate a review decision.
 5. Submit a revised version and show preserved history.
 6. Show permitted account management and audit events.
+
+### Key Accomplishments & Submission Status
+
+#### 1. Project Report and SRS
+The prepared Word documents describe the research-document problem, requirements, architecture, schema and implementation. Confirm guide details and enrolment numbers before submission.
+
+#### 2. Final Evaluation Slide Deck
+The existing 13-slide presentation covers the project overview, architecture, modules and demonstration. Its status is a prepared academic presentation, not evidence of a live deployment.
+
+#### 3. End-to-End Demonstration
+The recording script is prepared. The demonstration video remains to be recorded and linked after it exists.
+
+#### 4. Research-Paper Draft
+An unpublished design-and-implementation draft is included. The revised literature-search range is 2022 through 13 October 2026. The 22-paper shortlist still requires full-text screening and integration into the draft; publication or peer-review acceptance is not claimed.
+
+#### 5. Local Build and Evaluation
+The integrated application has an 11-test passing record using Java 17, embedded Tomcat and H2. External MySQL/Tomcat checks remain separate. No Docker, Railway or CI setup is part of this README.
+
+---
 
 ## Quick Start
 
@@ -758,3 +1036,45 @@ mvn test-compile exec:java -Dexec.mainClass=com.patentpulse.DemoServer -Dexec.cl
 
 The local demo supplies `researcher@demo.local`, `reviewer1@demo.local`, `reviewer2@demo.local` and `admin@demo.local`, using `PatentPulse!2026`. These are synthetic demo accounts. Keep demo mode disabled in a real installation.
 
+## Build and database deployment
+
+```sh
+mvn clean verify
+```
+
+The WAR is `target/patentpulse.war`. Use a compatible Tomcat 9 installation for the supplied `javax.servlet` application. MySQL setup is in `sql/create-database.sql` and `sql/schema.sql`. Set actual environment variables based on `config.example.env`: `DB_URL`, `DB_USER`, `DB_PASSWORD`, `UPLOAD_DIR`, `INIT_SCHEMA`, `DEMO_MODE` and the first-admin bootstrap settings. The application does not automatically read `.env` files.
+
+Configure a private upload directory and bootstrap the first admin. Remove bootstrap credentials afterwards. Review dependency patch levels and deployment controls before public hosting. The archive's dependency versions are a reproducibility baseline, not a claim that they are the newest secure releases.
+## Team Git Workflow
+
+Pull current main before starting a branch. Stage exact assigned files, describe actual changes in the commit, and open a pull request. Coordinate changes in `LedgerService.java`, `AppServlet.java`, `document.jsp`, `UploadStore.java` and `Database.java`. Member-name folders in the earlier distribution pack are wrappers, not repository directories.
+
+Do not commit local database files, uploads, secrets, `target/` or a Maven installation. Rebuild the WAR after source changes.
+
+### Contributing to the existing repository
+
+```sh
+git switch main
+git pull --ff-only origin main
+git switch -c docs/patentpulse-readme
+```
+
+Edit the agreed files, inspect `git diff`, and stage exact paths. For a README-only update:
+
+```sh
+git add README.md
+git commit -m "docs: expand PatentPulse overview and module documentation"
+git push -u origin docs/patentpulse-readme
+```
+
+Open a pull request into `main`. Commit the linked documentation separately if it is not already present. Preserve existing team changes and do not force-push shared history.
+## Scope & Current Limitations
+
+- Verification compares an uploaded candidate with a saved digest. Downloads do not automatically rehash the stored file.
+- SHA-256 does not establish originality, patentability or ownership.
+- Receipts are unsigned application records; there is no independent timestamp service.
+- Upload checks do not include antivirus scanning.
+- Failed-login throttling is session-scoped.
+- Real MySQL deployment checks and the demo video remain to be verified or completed.
+
+Guide details, enrolment numbers and confirmed activity records should be completed before academic submission.

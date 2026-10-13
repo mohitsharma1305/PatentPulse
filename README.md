@@ -567,8 +567,6 @@ These are checks to run, not fresh passing results. Use the final merged source 
 - Own-research dashboard and version history.
 - Validated private file storage.
 
-**Module documentation:** [Read Mohit Sharma’s guide](docs/modules/README_Mohit.md).
-
 ---
 
 ## Week 6: Module 2 & Module 3 Implementation
@@ -637,8 +635,6 @@ These are checks to run, not fresh passing results. Use the final merged source 
 - BCrypt password handling and session identity.
 - CSRF and protected-route checks.
 
-**Module documentation:** [Read Meet’s guide](docs/modules/README_Meet.md).
-
 ### Member 3: Jay (SHA-256 Verification & Downloads)
 
 #### Role & Scope of Work
@@ -705,8 +701,6 @@ These are checks to run, not fresh passing results. Use the final merged source 
 - SHA-256 utility and test cases.
 - Candidate-file comparison with match/mismatch results.
 - Authorised downloads.
-
-**Module documentation:** [Read Jay’s guide](docs/modules/README_Jay.md).
 
 ---
 
@@ -778,8 +772,6 @@ These are checks to run, not fresh passing results. Use the final merged source 
 - Decision and feedback processing.
 - Review-status policy and unit tests.
 
-**Module documentation:** [Read Nitesh’s guide](docs/modules/README_Nitesh.md).
-
 ---
 
 ## Week 8: Module 5 Implementation & Summary
@@ -834,8 +826,6 @@ These are checks to run, not fresh passing results. Use the final merged source 
 - Account role and status management.
 - Audit event listing.
 - Printable version receipt.
-
-**Module documentation:** [Read Mann Jain’s guide](docs/modules/README_Mann.md).
 
 ### Summary of Module Distribution
 

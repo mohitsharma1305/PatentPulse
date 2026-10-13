@@ -993,23 +993,6 @@ The linked documents and screenshots use the existing PatentPulse repository lay
 5. Submit a revised version and show preserved history.
 6. Show permitted account management and audit events.
 
-### Key Accomplishments & Submission Status
-
-#### 1. Project Report and SRS
-The prepared Word documents describe the research-document problem, requirements, architecture, schema and implementation. Confirm guide details and enrolment numbers before submission.
-
-#### 2. Final Evaluation Slide Deck
-The existing 13-slide presentation covers the project overview, architecture, modules and demonstration. Its status is a prepared academic presentation, not evidence of a live deployment.
-
-#### 3. End-to-End Demonstration
-The recording script is prepared. The demonstration video remains to be recorded and linked after it exists.
-
-#### 4. Research-Paper Draft
-An unpublished design-and-implementation draft is included. The revised literature-search range is 2022 through 13 October 2026. The 22-paper shortlist still requires full-text screening and integration into the draft; publication or peer-review acceptance is not claimed.
-
-#### 5. Local Build and Evaluation
-The integrated application has an 11-test passing record using Java 17, embedded Tomcat and H2. External MySQL/Tomcat checks remain separate. No Docker, Railway or CI setup is part of this README.
-
 ---
 
 ## Quick Start
@@ -1038,12 +1021,7 @@ chmod +x START-DEMO.sh
 ./START-DEMO.sh
 ```
 
-Open `http://localhost:8080/patentpulse`. The initial run downloads dependencies. Keep the terminal open and stop with Ctrl+C. If port 8080 is busy:
-```sh
-mvn test-compile exec:java -Dexec.mainClass=com.patentpulse.DemoServer -Dexec.classpathScope=test -Ddemo.port=8081
-```
-
-The local demo supplies `researcher@demo.local`, `reviewer1@demo.local`, `reviewer2@demo.local` and `admin@demo.local`, using `PatentPulse!2026`. These are synthetic demo accounts. Keep demo mode disabled in a real installation.
+Open `http://localhost:8080/patentpulse`. The initial run downloads dependencies. Keep the terminal open and stop with Ctrl+C. 
 
 ## Build and database deployment
 
@@ -1068,5 +1046,3 @@ Do not commit local database files, uploads, secrets, `target/` or a Maven insta
 - Upload checks do not include antivirus scanning.
 - Failed-login throttling is session-scoped.
 - Real MySQL deployment checks and the demo video remain to be verified or completed.
-
-Guide details, enrolment numbers and confirmed activity records should be completed before academic submission.

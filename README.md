@@ -964,7 +964,7 @@ Use the shared integration report for recorded automated results. Member-specifi
 | Deliverable | Resource | Status |
 |---|---|---|
 | Project report | [Word document](https://docs.google.com/document/d/1VGnz2tlHKocOxwPtAJICDm8wZwZ3FXKU/edit?usp=sharing&ouid=116020988422796059772&rtpof=true&sd=true) | Prepared; team details to complete |
-| Research paper | [Paper draft](https://docs.google.com/document/d/1G6VNNXgvDJ2NVXIMcDMhhW8dAvvgB_u8/edit?usp=sharing&ouid=116020988422796059772&rtpof=true&sd=true) | Unpublished design and implementation draft |
+| Research paper | [Paper draft]([https://docs.google.com/document/d/1G6VNNXgvDJ2NVXIMcDMhhW8dAvvgB_u8/edit?usp=sharing&ouid=116020988422796059772&rtpof=true&sd=true](https://drive.google.com/file/d/1-I-SIa14MsZsjQuyYNhEftY0Hepep2zP/view?usp=sharing)) | Unpublished design and implementation draft |
 | SRS | [Requirements](https://docs.google.com/document/d/18uhwL6LJq630_SILQipUaQPmX2MC--yu/edit?usp=sharing&ouid=116020988422796059772&rtpof=true&sd=true) | Prepared |
 | Presentation | [13-slide PPT](reports/PatentPulse_Presentation.pptx) | Prepared |
 | UML design | [Design README](docs/uml/README.md) | Prepared |

@@ -18,6 +18,9 @@ public class AppContext implements ServletContextListener {
           Config.get(
               "DB_URL",
               "jdbc:mysql://localhost:3306/patentpulse?connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true"));
+      if (cfg.getJdbcUrl().startsWith("jdbc:mysql:")) {
+        cfg.setDriverClassName("com.mysql.cj.jdbc.Driver");
+      }
       cfg.setUsername(Config.get("DB_USER", "patentpulse"));
       cfg.setPassword(Config.get("DB_PASSWORD", ""));
       cfg.setMaximumPoolSize(8);
@@ -69,6 +72,7 @@ public class AppContext implements ServletContextListener {
                       "UPLOAD_DIR", System.getProperty("user.home") + "/patentpulse-uploads"))));
       ctx.setAttribute("demoMode", Boolean.parseBoolean(Config.get("DEMO_MODE", "false")));
     } catch (Exception e) {
+      e.printStackTrace(System.err);
       if (pool != null) pool.close();
       throw new IllegalStateException(
           "PatentPulse startup failed. Check database/environment configuration.", e);

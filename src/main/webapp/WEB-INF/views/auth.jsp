@@ -5,7 +5,7 @@
 <c:if test="${param.loggedOut == '1'}"><div class="alert success" role="status">You have been signed out successfully.</div></c:if>
 <form method="post" action="${pageContext.request.contextPath}/${register ? 'register' : 'login'}"><%@ include file="csrf.jspf" %>
 <c:if test="${register}"><label for="name">Full name</label><input id="name" name="name" required minlength="2" maxlength="100" autocomplete="name" placeholder="Your full name"></c:if>
-<label for="email">Email address</label><input id="email" name="email" type="email" required maxlength="190" autocomplete="email" placeholder="you@university.edu">
+<label for="email">Email address</label><input id="email" name="email" type="email" required maxlength="190" autocomplete="email" placeholder="you@university.edu" value="<c:out value='${loginEmail}'/>">
 <label for="password">Password</label><input id="password" name="password" type="password" required minlength="${register ? 10 : 1}" autocomplete="${register ? 'new-password' : 'current-password'}" placeholder="${register ? 'At least 10 characters' : 'Enter your password'}">
 <button class="btn primary full" type="submit">${register ? 'Create researcher account' : 'Sign in to workspace'} <span>→</span></button></form>
 <p class="auth-switch">${register ? 'Already have an account?' : 'New to PatentPulse?'} <a href="${pageContext.request.contextPath}/${register ? 'login' : 'register'}">${register ? 'Sign in' : 'Create an account'}</a></p>

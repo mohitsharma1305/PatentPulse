@@ -51,6 +51,8 @@ public class AuthServlet extends HttpServlet {
         if (failures >= 5) {
           session.setAttribute("blockedUntil", System.currentTimeMillis() + 60000);
           session.setAttribute("failures", 0);
+          throw new Problem(
+              429, "Too many failed attempts in this session. Try again in one minute.");
         }
         throw e;
       }

@@ -1,0 +1,8 @@
+target/
+demo-data/
+.env
+*.log
+.idea/
+.classpath
+.project
+.settings/

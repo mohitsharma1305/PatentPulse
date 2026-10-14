@@ -28,6 +28,28 @@ class HashingTest {
   }
 
   @Test
+  void nullStreamIsRejected() {
+    assertThrows(NullPointerException.class, () -> Hashing.sha256(null));
+  }
+
+  @Test
+  void hashingDoesNotCloseCallerOwnedStream() throws Exception {
+    boolean[] closed = {false};
+    InputStream stream =
+        new ByteArrayInputStream("abc".getBytes(StandardCharsets.UTF_8)) {
+          @Override
+          public void close() throws IOException {
+            closed[0] = true;
+            super.close();
+          }
+        };
+
+    Hashing.sha256(stream);
+
+    assertFalse(closed[0]);
+  }
+
+  @Test
   void streamReadBoundariesDoNotChangeDigest() throws Exception {
     byte[] bytes = "abc".getBytes(StandardCharsets.UTF_8);
     InputStream slow =

@@ -17,9 +17,10 @@ public class FileServlet extends HttpServlet {
       long id;
       try {
         id = Long.parseLong(r.getParameter("id"));
-      } catch (Exception e) {
+      } catch (NumberFormatException e) {
         throw new Problem(400, "Invalid record ID.");
       }
+      Problem.require(id > 0, 400, "Invalid record ID.");
       var v =
           ((LedgerService) getServletContext().getAttribute("ledger"))
               .version((User) r.getSession().getAttribute("user"), id);

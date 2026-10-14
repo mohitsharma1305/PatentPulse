@@ -315,6 +315,8 @@ flowchart TD
 
 ### Deployment view
 
+**Live deployment (Railway):** [Open PatentPulse](https://patentpulse-production.up.railway.app)
+
 ```mermaid
 flowchart TD
   B[Browser] --> T[Tomcat 9 with PatentPulse WAR]

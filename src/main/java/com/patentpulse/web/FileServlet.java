@@ -30,6 +30,8 @@ public class FileServlet extends HttpServlet {
       Problem.require(
           Files.isRegularFile(path), 404, "Stored file is unavailable. Contact the administrator.");
       s.setContentType("application/octet-stream");
+      s.setHeader("X-Content-Type-Options", "nosniff");
+      s.setHeader("Cache-Control", "private, no-store");
       s.setHeader(
           "Content-Disposition",
           "attachment; filename=\"research-file\"; filename*=UTF-8''"

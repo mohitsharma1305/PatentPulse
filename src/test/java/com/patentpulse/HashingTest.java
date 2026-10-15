@@ -74,4 +74,26 @@ class HashingTest {
 
     assertEquals(hash(value), Hashing.sha256(chunked));
   }
+
+  @Test
+  void zeroLengthBulkReadFallsBackToSingleByteRead() throws Exception {
+    int[] bulkReads = {0};
+    int[] singleByteReads = {0};
+    InputStream stream =
+        new InputStream() {
+          @Override
+          public int read(byte[] bytes, int offset, int length) {
+            return ++bulkReads[0] == 1 ? 0 : -1;
+          }
+
+          @Override
+          public int read() {
+            singleByteReads[0]++;
+            return -1;
+          }
+        };
+
+    assertEquals(hash(""), Hashing.sha256(stream));
+    assertEquals(1, singleByteReads[0]);
+  }
 }

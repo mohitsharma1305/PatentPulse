@@ -66,7 +66,9 @@ public class AuthServlet extends HttpServlet {
     } catch (Problem e) {
       s.setStatus(e.status);
       r.setAttribute("error", e.getMessage());
-      r.setAttribute("loginEmail", param(r, "email"));
+      if (!r.getServletPath().equals("/register")) {
+        r.setAttribute("loginEmail", param(r, "email"));
+      }
       r.setAttribute("register", r.getServletPath().equals("/register"));
       r.getRequestDispatcher("/WEB-INF/views/auth.jsp").forward(r, s);
     } catch (Exception e) {

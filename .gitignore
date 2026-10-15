@@ -1,0 +1,9 @@
+target/
+demo-data/
+.env
+*.log
+.DS_Store
+.idea/
+.classpath
+.project
+.settings/

@@ -168,7 +168,7 @@ class WorkflowTest {
                     "/app/submit",
                     fields,
                     "document",
-                    "research.txt",
+                    "research notes.txt",
                     "Original research content.")));
     var document = researcher.get("/app/document?id=" + version);
     assertEquals(200, document.statusCode(), document.body());
@@ -201,6 +201,12 @@ class WorkflowTest {
             .firstValue("content-disposition")
             .orElseThrow()
             .contains("attachment;"));
+    assertTrue(
+        download
+            .headers()
+            .firstValue("content-disposition")
+            .orElseThrow()
+            .contains("filename*=UTF-8''research%20notes.txt"));
     assertEquals(200, researcher.get("/app/receipt?id=" + version).statusCode());
     location(
         researcher.upload(

@@ -1,0 +1,7 @@
+PatentPulse demo research — version 1
+Title: Integrity checking for university research archives
+Field: Cybersecurity
+Hypothesis: Recording SHA-256 fingerprints supports repeatable comparison of research file versions.
+Method: Upload a file, retain its fingerprint, and compare the exact bytes of later copies.
+Limitation: A matching hash does not prove authorship or establish legal IP rights.
+This is synthetic demonstration content, not a scientific result.

@@ -3,11 +3,15 @@ package com.patentpulse.web;
 import java.io.IOException;
 import java.util.UUID;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.patentpulse.model.User;
 import com.patentpulse.service.*;
 import com.patentpulse.util.Problem;
-import javax.servlet.*;
-import javax.servlet.http.*;
 
 public class AuthServlet extends HttpServlet {
   protected void doGet(HttpServletRequest r, HttpServletResponse s)

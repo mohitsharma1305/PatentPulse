@@ -1,10 +1,11 @@
 package com.patentpulse.web;
 
+import java.io.IOException;
+import java.util.UUID;
+
 import com.patentpulse.model.User;
 import com.patentpulse.service.*;
 import com.patentpulse.util.Problem;
-import java.io.*;
-import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 

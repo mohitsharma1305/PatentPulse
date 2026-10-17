@@ -18,6 +18,12 @@ class HashingTest {
   }
 
   @Test
+  void utf8InputIsHashedAsUtf8() throws Exception {
+    assertEquals(
+        "4a99557e4033c3539de2eb65472017cad5f9557f7a0625a09f1c3f6e2ba69c4c", hash("é"));
+  }
+
+  @Test
   void changingOneByteChangesFingerprint() throws Exception {
     assertNotEquals(hash("research"), hash("Research"));
   }

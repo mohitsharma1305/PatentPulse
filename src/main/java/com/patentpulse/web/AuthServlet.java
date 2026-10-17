@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.patentpulse.model.User;
-import com.patentpulse.service.*;
+import com.patentpulse.service.AuthService;
 import com.patentpulse.util.Problem;
 
 public class AuthServlet extends HttpServlet {

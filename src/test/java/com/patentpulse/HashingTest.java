@@ -110,4 +110,17 @@ class HashingTest {
     assertEquals(hash(""), Hashing.sha256(stream));
     assertEquals(1, singleByteReads[0]);
   }
+
+  @Test
+  void readFailureIsPropagated() {
+    InputStream failing =
+        new InputStream() {
+          @Override
+          public int read() throws IOException {
+            throw new IOException("read failed");
+          }
+        };
+
+    assertThrows(IOException.class, () -> Hashing.sha256(failing));
+  }
 }

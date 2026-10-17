@@ -82,6 +82,14 @@ class HashingTest {
   }
 
   @Test
+  void exactBufferSizeInputHasExpectedDigest() throws Exception {
+    String value = "a".repeat(8192);
+    assertEquals(
+        hash(value),
+        Hashing.sha256(new ByteArrayInputStream(value.getBytes(StandardCharsets.UTF_8))));
+  }
+
+  @Test
   void zeroLengthBulkReadFallsBackToSingleByteRead() throws Exception {
     int[] bulkReads = {0};
     int[] singleByteReads = {0};
